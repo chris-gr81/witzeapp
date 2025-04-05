@@ -1,0 +1,112 @@
+@use "./variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $backgroundColor;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  font-family: $primaryFont;
+  color: $textColor;
+}
+
+.heading {
+  color: $highlightColorPrimary;
+  font-family: $headingFont;
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.current-joke {
+  display: flex;
+  flex-direction: column;
+  background-color: $elementBackgroundColor;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  padding: 2rem 1.8rem;
+  gap: 2rem;
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $highlightColorPrimary;
+    border-radius: 5px;
+    color: $highlightColorPrimary;
+    font-size: 1rem;
+    height: 3.5rem;
+    transition: all 0.3s ease-in-out;
+
+    &--highlight,
+    &:hover {
+      background-color: $highlightColorPrimary;
+      color: $buttonTextColor;
+    }
+  }
+
+  &__symbol {
+    height: 1.5rem;
+  }
+}
+
+.saved-jokes {
+  margin-top: 5rem;
+
+  &__heading {
+    font-family: $headingFont;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+.saved-joke {
+  display: flex;
+  flex-direction: row;
+  background-color: $elementBackgroundColor;
+  padding: 1rem;
+
+  &__text {
+    flex: 5;
+  }
+
+  &__remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  &__symbol {
+    background-color: $highlightColorSecondary;
+    height: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    stroke-width: 1.5;
+  }
+}
