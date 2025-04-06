@@ -2,7 +2,6 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Witze App</title>
   </head>
@@ -10,16 +9,15 @@
     <div id="app">
       <h1 class="heading">Witze App</h1>
       <div class="current-joke">
-        <div class="current-joke__joke">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-          repellendus mollitia magnam veniam nam dicta, blanditiis dolorem quae.
-          Dignissimos, accusamus!
-        </div>
+        <div class="current-joke__joke"></div>
         <div class="current-joke__buttons">
-          <div class="current-joke__btn current-joke__btn--highlight">
+          <div
+            class="current-joke__btn current-joke__btn--highlight"
+            id="getJokeBtn"
+          >
             Neuen Witz laden
           </div>
-          <div class="current-joke__btn">
+          <div class="current-joke__btn" id="saveJokeBtn">
             <span>Witz speichern</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
