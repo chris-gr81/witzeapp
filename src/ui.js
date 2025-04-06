@@ -1,12 +1,11 @@
-export function renderJoke(target, joke) {
-  const saveBtnEl = document.getElementById("saveJokeBtn");
+export function renderJoke(button, target, joke) {
   if (joke === "default") {
     target.innerText = "Klicke auf den Button um einen Witz zu laden!";
     target.style.fontStyle = "italic";
-    saveBtnEl.style.display = "none";
+    button.style.display = "none";
     return;
   }
   target.innerText = joke;
   target.style.fontStyle = "";
-  saveBtnEl.style.display = "";
+  button.style.display = "";
 }
