@@ -1,6 +1,7 @@
 const API_ENDPOINT = "https://witzapi.de/api/joke/";
 const STORAGE_KEY = "witzeapp";
-const jokeList = [];
+export const jokeList = [];
+
 async function getAPIJoke() {
   const response = await fetch(API_ENDPOINT);
   const body = await response.json();
