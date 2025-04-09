@@ -1,3 +1,5 @@
+import { deleteJoke } from "./api";
+
 export function renderJoke(button, target, joke) {
   if (joke === "default") {
     target.innerText = "Klicke auf den Button um einen Witz zu laden!";
@@ -39,5 +41,10 @@ export function renderSaveJokes(jokeData) {
         </div>
       `;
     savedJokesListEl.prepend(savedJokeEl);
+    const deleteEl = savedJokeEl.querySelector(".saved-joke__symbol");
+    deleteEl.setAttribute("data-id", joke.id);
+    deleteEl.addEventListener("click", () => {
+      deleteJoke(joke.id);
+    });
   });
 }

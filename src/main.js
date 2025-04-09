@@ -9,6 +9,7 @@ const currentJokeJokeEl = document.querySelector(".current-joke__joke");
 document.addEventListener("DOMContentLoaded", () => {
   renderJoke(saveJokeBtnEl, currentJokeJokeEl, "default");
   if (!getLocal()) return;
+
   getLocal().forEach((element) => {
     jokeList.push(element);
   });
