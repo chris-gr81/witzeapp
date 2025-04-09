@@ -7,7 +7,7 @@ $buttonTextColor: #000000;
 
 $headingFont: "Rubik Scribble", system-ui;
 $primaryFont: "Inter", sans-serif;
-$breakpoint: 600px;
+$breakpoint: 800px;
 
 @mixin tablet-and-up() {
   @media only screen and (min-width: $breakpoint) {
