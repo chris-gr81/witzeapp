@@ -2,7 +2,7 @@ import { renderSaveJokes } from "./ui";
 
 const API_ENDPOINT = "https://witzapi.de/api/joke/";
 const STORAGE_KEY = "witzeapp";
-export const jokeList = [];
+export let jokeList = [];
 
 async function getAPIJoke() {
   const response = await fetch(API_ENDPOINT);
@@ -32,8 +32,7 @@ export function deleteJoke(id) {
   const newList = jokeList.filter((joke) => {
     return joke.id !== Number(id);
   });
-  jokeList.length = 0;
-  jokeList.push(...newList);
+  jokeList = newList;
   overwriteLocal(jokeList);
   renderSaveJokes(jokeList);
 }
@@ -42,13 +41,9 @@ function createId() {
   let counter = 1;
   const jokeList = getLocal() ?? [];
 
-  const sortedList = jokeList
-    .filter((joke) => {
-      return joke && typeof joke.id === "number";
-    })
-    .sort((a, b) => {
-      return a.id - b.id;
-    });
+  const sortedList = jokeList.sort((a, b) => {
+    return a.id - b.id;
+  });
 
   for (const joke of sortedList) {
     if (counter === joke.id) {
@@ -58,4 +53,13 @@ function createId() {
     }
   }
   return counter;
+}
+
+export function isDuplicate(currentJoke) {
+  if (!getLocal()) return;
+
+  const localList = getLocal();
+  return localList.some((entry) => {
+    return entry.joke === currentJoke;
+  });
 }

@@ -1,5 +1,5 @@
 import "./styles.scss";
-import { getJoke, setLocal, getLocal, jokeList } from "./api";
+import { getJoke, setLocal, getLocal, jokeList, isDuplicate } from "./api";
 import { renderJoke, renderSaveJokes } from "./ui";
 
 const getJokeBtnEl = document.getElementById("getJokeBtn");
@@ -29,12 +29,3 @@ saveJokeBtnEl.addEventListener("click", () => {
   setLocal(currentJokeJokeEl.innerText);
   renderSaveJokes(getLocal());
 });
-
-function isDuplicate(currentJoke) {
-  if (!getLocal()) return;
-
-  const localList = getLocal();
-  return localList.some((entry) => {
-    return entry.joke === currentJoke;
-  });
-}
